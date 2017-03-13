@@ -1,5 +1,7 @@
 <template lang="html">
   <section class="section">
+    <enemies :path='path'></enemies>
+    <br>
     <div class="columns is-multiline is-mobile">
       <div class="column is-2" v-for="stargazer in  stargazers">
         <img :src="stargazer.avatar_url" alt="" width="100%" height="100%">
@@ -15,14 +17,17 @@
 <script>
 import { fetchStargazers } from '../services/api'
 import InfiniteLoading from 'vue-infinite-loading'
+import Enemies from './Enemies'
 
 export default {
   components: {
+    Enemies,
     InfiniteLoading
   },
   computed: {
     path () {
-      return this.$route.params.owner + '/' + this.$route.params.repo
+      let vm = this
+      return vm.$route.params.owner + '/' + vm.$route.params.repo
     }
   },
   data () {
@@ -45,7 +50,8 @@ export default {
     }
   },
   created () {
-    this.fetchStargazers()
+    let vm = this
+    vm.fetchStargazers()
   }
 }
 </script>

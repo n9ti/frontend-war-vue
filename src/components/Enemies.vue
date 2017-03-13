@@ -23,7 +23,7 @@
         <div class="level-item has-text-centered">
           <div>
             <p class="heading">Stars</p>
-            <router-link :to="path" class="title">{{ info.stargazers_count }}</router-link>
+            <router-link :to="'/' + path" class="title">{{ info.stargazers_count }}</router-link>
           </div>
         </div>
         <div class="level-item has-text-centered">
