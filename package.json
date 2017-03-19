@@ -5,9 +5,13 @@
   "author": "Nati Namvong <nati@flyingcomma.com>",
   "private": true,
   "scripts": {
+    "deploy": "gh-pages-deploy",
     "dev": "node build/dev-server.js",
     "build": "node build/build.js",
     "lint": "eslint --ext .js,.vue src"
+  },
+  "gh-pages-deploy": {
+    "staticpath": "dist"
   },
   "dependencies": {
     "axios": "^0.15.3",
