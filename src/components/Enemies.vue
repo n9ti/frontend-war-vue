@@ -12,6 +12,7 @@
             <p>
               <strong class="title">{{ info.name }}</strong>
               <p class="subtitle">{{ info.description }}</p>
+              <router-link :to="'/' + repoName" class="title">View Army</router-link>
             </p>
           </div>
         </div>
