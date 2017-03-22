@@ -4,7 +4,7 @@
       <article class="media">
         <div class="media-left">
           <figure class="image is-64x64">
-            <img :src="info.organization.avatar_url" alt="">
+            <img :src="info.avatar_url" alt="">
           </figure>
         </div>
         <div class="media-content">
