@@ -23,25 +23,25 @@
         <div class="level-item has-text-centered">
           <div>
             <p class="heading">Stars</p>
-            <router-link :to="'/' + path" class="title">{{ info.stargazers_count }}</router-link>
+            <p class="title">{{ numberFormat(info.stargazers_count) }}</p>
           </div>
         </div>
         <div class="level-item has-text-centered">
           <div>
             <p class="heading">Open Issues</p>
-            <p class="title">{{ info.open_issues_count }}</p>
+            <p class="title">{{ numberFormat(info.open_issues_count) }}</p>
           </div>
         </div>
         <div class="level-item has-text-centered">
           <div>
             <p class="heading">Forks</p>
-            <p class="title">{{ info.forks_count }}</p>
+            <p class="title">{{ numberFormat(info.forks_count) }}</p>
           </div>
         </div>
         <div class="level-item has-text-centered">
           <div>
             <p class="heading">Pull Requests</p>
-            <p class="title">{{ info.pull_requests_count }}</p>
+            <p class="title">{{ numberFormat(info.pull_requests_count) }}</p>
           </div>
         </div>
       </nav>
@@ -59,6 +59,11 @@ export default {
       info: {
         organization: {}
       }
+    }
+  },
+  methods: {
+    numberFormat (number) {
+      return (number) ? number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') : number
     }
   },
   created () {
