@@ -6,7 +6,12 @@ import axios from 'axios'
 // Fetch Github api with given path
 // -
 export function fetchGitHubAPIWithPath (path) {
-  let pm = axios.get(`https://api.github.com${path}`)
+  let header = {
+    headers: {
+      'Authorization': `token fbedabf134e561e8515b0c939d4f7b7b17f749ff`
+    }
+  }
+  let pm = axios.get(`https://api.github.com${path}`, header)
   return pm
 }
 
@@ -44,7 +49,12 @@ export function fetchRepository (scopeName) {
   .then((values) => {
     const [ repo, searchResult ] = values
     return {
-      ...repo.data,
+      name: repo.data.name,
+      description: repo.data.description,
+      avatar_url: repo.data.organization.avatar_url,
+      stargazers_count: repo.data.stargazers_count,
+      open_issues_count: repo.data.open_issues_count,
+      forks_count: repo.data.forks_count,
       pull_requests_count: searchResult.data.total_count
     }
   })
